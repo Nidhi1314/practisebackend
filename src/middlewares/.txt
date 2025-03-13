@@ -1,0 +1,10 @@
+req,res
+/intsgra--> req,res---> res.json()(response send)
+but are fit to take request and return response for that we need to check
+
+this checking is called middleware
+ex. check if user is loggedin then only accept req and send response
+this is middleware
+next(); is used to pass to next middleware or flgas to perform next checking
+
+

@@ -6,7 +6,22 @@ dotenv.config(
         path:'./env'
     }
 )
-connectDB();
+connectDB().then(
+    ()=>
+    {
+        app.on("error",(error)=>{
+            console.log("app unable to communicate",error);
+            throw error;
+        })
+        app.listen(process.env.PORT || 8000,()=>
+        {
+            console.log(`aap listening on port ${process.env.PORT}`);
+        })
+    }
+
+).catch((err)=>{
+ console.log("error connection in db",err);
+});
 
 
 /*
